@@ -16,4 +16,10 @@ RUN apt-get install curl -y
 RUN apt-get install ffmpeg -y
 RUN pip install tensorrt==10.6.0 --extra-index-url https://pypi.nvidia.com
 
+# Copiez les fichiers nécessaires du dossier local au dossier de travail du conteneur
+COPY facefusion/ /facefusion/facefusion/
+COPY install.py facefusion.py /facefusion/
+
 RUN python install.py --onnxruntime cuda --skip-conda
+
+CMD ["python", "facefusion.py", "run", "--execution-providers", "tensorrt"]

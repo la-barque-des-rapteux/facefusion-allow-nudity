@@ -3,7 +3,6 @@ services:
   build:
    context: .
    dockerfile: Dockerfile
-  command: [ 'python', 'facefusion.py', 'run', '--execution-providers', 'tensorrt' ]
   volumes:
   - .assets:/facefusion/.assets
   - .caches:/facefusion/.caches
