@@ -18,6 +18,6 @@ RUN pip install tensorrt==10.6.0 --extra-index-url https://pypi.nvidia.com
 
 # Copiez les fichiers nécessaires du dossier local au dossier de travail du conteneur
 COPY facefusion/ /facefusion/facefusion/
-COPY install.py facefusion.py /facefusion/
+COPY install.py facefusion.py requirements.txt /facefusion/
 
 RUN python install.py --onnxruntime cuda --skip-conda
