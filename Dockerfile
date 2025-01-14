@@ -21,5 +21,3 @@ COPY facefusion/ /facefusion/facefusion/
 COPY install.py facefusion.py /facefusion/
 
 RUN python install.py --onnxruntime cuda --skip-conda
-
-CMD ["python", "facefusion.py", "run", "--execution-providers", "tensorrt"]

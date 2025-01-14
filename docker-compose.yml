@@ -3,12 +3,13 @@ services:
   build:
    context: .
    dockerfile: Dockerfile
+  command: [ 'python', 'facefusion.py', 'run', '--execution-providers', 'tensorrt' ]
   volumes:
   - .assets:/facefusion/.assets
   - .caches:/facefusion/.caches
   - .jobs:/facefusion/.jobs
   ports:
-  - 7875:7860
+  - 5000:7860
   deploy:
    resources:
     reservations:
